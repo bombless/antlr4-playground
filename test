@@ -1,4 +1,9 @@
-#!/bin/sh
+#!/bin/bash
+if [[ ($# < 1) || ($1 ==  "-help") ]]; then
+java -cp antlr-4.10.1-complete.jar org.antlr.v4.gui.TestRig
+exit;
+fi
+
 TMP=`mktemp -d`
 
 java -jar antlr-4.10.1-complete.jar -o $TMP syntax.g4
