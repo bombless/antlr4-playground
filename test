@@ -1,0 +1,8 @@
+#!/bin/sh
+TMP=`mktemp -d`
+
+java -jar antlr-4.10.1-complete.jar -o $TMP syntax.g4
+
+javac $TMP/syntax*.java
+
+java -cp antlr-4.10.1-complete.jar:$TMP org.antlr.v4.gui.TestRig syntax syntax $@ source.txt
